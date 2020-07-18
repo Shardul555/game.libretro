@@ -21,6 +21,7 @@
 
 #include "LibretroResources.h"
 #include "audio/AudioStream.h"
+#include "memory/MemoryMap.h"
 #include "settings/LibretroSettings.h"
 #include "video/VideoStream.h"
 
@@ -31,8 +32,6 @@
 
 namespace ADDON { class CHelper_libXBMC_addon; }
 class CHelper_libKODI_game;
-
-struct retro_game_geometry;
 
 namespace LIBRETRO
 {
@@ -102,5 +101,7 @@ namespace LIBRETRO
 
     CLibretroSettings m_settings;
     CLibretroResources m_resources;
+
+    CMemoryMap m_mmaps;
   };
 } // namespace LIBRETRO

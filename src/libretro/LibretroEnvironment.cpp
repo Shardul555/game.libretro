@@ -472,9 +472,11 @@ bool CLibretroEnvironment::EnvironmentCallback(unsigned int cmd, void *data)
   {
     const retro_memory_map* typedData = reinterpret_cast<const retro_memory_map*>(data);
     if (typedData)
-    {
-      // Not implemented
-      return false;
+    { 
+      for (int i = 0; i < typedData->num_descriptors; i++)
+        m_mmaps.AddDescriptor(typedData->descriptors[i]);
+
+      m_mmaps.PreprocessDescriptors();
     }
     break;
   }
