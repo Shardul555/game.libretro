@@ -47,6 +47,7 @@ namespace LIBRETRO
     static void LedSetState(int led, int state);
     static bool SensorSetState(unsigned port, retro_sensor_action action, unsigned rate);
     static float SensorGetInput(unsigned port, unsigned id);
+    static void AwardAchievement(const char* achievementUrl, unsigned cheevoId);
     static bool StartCamera(void);
     static void StopCamera(void);
     static retro_time_t PerfGetTimeUsec(void);

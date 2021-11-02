@@ -49,7 +49,6 @@ public:
   void DeactivateTriggeredAchievement(unsigned cheevo_id);
   void TestCheevoStatusPerFrame();
   unsigned int Peek(unsigned int address, unsigned int numBytes);
-  void GetCheevo_URL_ID(void (*callback)(const char* achievement_url, unsigned cheevo_id));
 
 private:
   const uint8_t* FixupFind(unsigned address, CMemoryMap& mmap, int consolecheevos);
@@ -59,8 +58,6 @@ private:
 
   static unsigned int PeekInternal(unsigned address, unsigned num_bytes, void* ud);
   static void RuntimeEventHandler(const rc_runtime_event_t* runtime_event);
-
-  void (*m_callback)(const char* achievement_url, unsigned cheevo_id);
 
   int m_consoleID;
 
