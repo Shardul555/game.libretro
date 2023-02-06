@@ -89,8 +89,6 @@ public:
   GAME_ERROR RCGetRichPresenceEvaluation(std::string& evaluation, unsigned int consoleID) override;
   GAME_ERROR ActivateAchievement(unsigned cheevo_id, const char* memaddr) override;
   GAME_ERROR RCResetRuntime() override;
-  GAME_ERROR GetCheevo_URL_ID(void (*Callback)(const char* achievement_url,
-                                               unsigned cheevo_id)) override;
 
 private:
   GAME_ERROR AudioAvailable();

@@ -9,6 +9,8 @@
 
 #include "Cheevos.h"
 
+#include "libretro/FrontendBridge.h"
+#include "libretro/libretro.h"
 #include "libretro/LibretroEnvironment.h"
 #include "libretro/MemoryMap.h"
 #include "rcheevos/rconsoles.h"
@@ -148,16 +150,11 @@ bool CCheevos::AwardAchievement(
                              game_hash.c_str()) >= 0;
 }
 
-void CCheevos::GetCheevo_URL_ID(void (*callback)(const char* achievement_url, unsigned cheevo_id))
-{
-  m_callback = callback;
-}
-
-void CCheevos::DeactivateTriggeredAchievement(unsigned cheevo_id)
+void CCheevos::DeactivateTriggeredAchievement(unsigned cheevoId)
 {
   rc_runtime_deactivate_achievement(&m_runtime, cheevo_id);
   char url[URL_SIZE];
-  if (AwardAchievement(url, URL_SIZE, cheevo_id, 0, m_hash.c_str()))
+  if (AwardAchievement(url, URL_SIZE, cheevoId, 0, m_hash.c_str()))
   {
     std::string achievement_url = url;
     m_callback(url, cheevo_id);

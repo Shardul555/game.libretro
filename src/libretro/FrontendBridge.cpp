@@ -270,6 +270,14 @@ float CFrontendBridge::SensorGetInput(unsigned port, unsigned id)
   return axisState;
 }
 
+void CFrontendBridge::AwardAchievement(const char* achievementUrl, unsigned cheevoId)
+{
+  if (!CLibretroEnvironment::Get().GetAddon())
+    return;
+
+  CLibretroEnvironment::Get().GetAddon()->AwardAchievement(achievementUrl, cheevoId);
+}
+
 bool CFrontendBridge::StartCamera(void)
 {
   return false; // Not implemented

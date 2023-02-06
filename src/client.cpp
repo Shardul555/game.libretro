@@ -545,13 +545,6 @@ GAME_ERROR CGameLibRetro::ActivateAchievement(unsigned cheevo_id, const char* me
   return GAME_ERROR_NO_ERROR;
 }
 
-GAME_ERROR CGameLibRetro::GetCheevo_URL_ID(void (*Callback)(const char* achievement_url,
-                                                            unsigned cheevo_id))
-{
-  CCheevos::Get().GetCheevo_URL_ID(Callback);
-  return GAME_ERROR_NO_ERROR;
-}
-
 GAME_ERROR CGameLibRetro::RCResetRuntime()
 {
   CCheevos::Get().ResetRuntime();
